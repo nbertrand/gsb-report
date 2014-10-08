@@ -2,7 +2,7 @@
 
 namespace GSB\Domain;
 
-class Practtype {
+class PractitionerType {
 
     /** practitioner type id
      * 

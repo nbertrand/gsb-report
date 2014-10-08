@@ -18,8 +18,8 @@ class PractitionerTypeDAO extends DAO
         // Converts query result to an array of domain objects
         $types = array();
         foreach ($result as $row) {
-            $TypeID = $row['practitioner_type_id'];
-            $types[$practitionerTypeID] = $this->buildDomainObject($row);
+            $typeID = $row['practitioner_type_id'];
+            $types[$typeID] = $this->buildDomainObject($row);
         }
         return $types;
     }
@@ -49,9 +49,9 @@ class PractitionerTypeDAO extends DAO
      * @return \GSB\Domain\PractitionerType
      */
     protected function buildDomainObject($row) {
-        $type = new practitioner_type();
-        $type->setId($row['practitioner_type_id']);
-        $type->setName($row['practitioner_type_name']);
+        $type = new PractitionerType();
+        $type->setType_id_p($row['practitioner_type_id']);
+        $type->setType_name_p($row['practitioner_type_name']);
         return $type;
     }
 }
