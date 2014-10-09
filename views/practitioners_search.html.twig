@@ -1,7 +1,7 @@
 {% extends "layout.html.twig" %}
 {% set practitionerMenu = true %}
 
-{% block title %}Recherche de practiciens{% endblock %}
+{% block title %}Recherche de practicien{% endblock %}
 
 {% block content %}
 <h2 class="text-center">{{ block('title') }}</h2>
@@ -10,9 +10,9 @@
         <div class="form-group">
             <label class="col-sm-2 col-sm-offset-1 control-label">Type</label>
             <div class="col-sm-7">
-                <select class="form-control" name="practitionerType">
-                    {% for type in types %}
-                        <option value="{{ type.type_id_p }}">{{ type.type_name_p }}</option>
+                <select class="form-control" name="practitionerTypeId">
+                    {% for practitionerType in practitionerTypes %}
+                        <option value="{{ practitionerType.id }}">{{ practitionerType.name }}</option>
                     {% endfor %}
                 </select>
             </div>

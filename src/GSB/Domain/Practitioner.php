@@ -1,119 +1,109 @@
 <?php
-
 namespace GSB\Domain;
 
 class Practitioner {
-
-    /** practitioner id
-     * 
+    /**
+     * Practitioner id.
+     *
      * @var integer
      */
-    private $id_p;
-
-    /** practitioner type id
-     * 
-     * @var integer
-     */
-    private $type_id_p;
-
-    /** practionner name
-     * 
-     * @var string 
-     */
-    private $prac_name;
-
-    /** practitioner first name
-     * 
+    private $id;
+    /**
+     * Practitioner name.
+     *
      * @var string
      */
-    private $prac_first_name;
-
-    /** practitioner address
-     * 
+    private $name;
+    /**
+     * Practitioner firstName.
+     *
      * @var string
      */
-    private $prac_address;
-
-    /** practitioner zip code
-     * 
+    private $firstName;
+    /**
+     * Practitioner address.
+     *
      * @var string
      */
-    private $prac_zip;
-
-    /** practitioner city
-     * 
+    private $address;
+    /**
+     * Practitioner city.
+     *
      * @var string
      */
-    private $prac_city;
-
-    /** notoriety coefficient
-     * 
-     * @var integer
+    private $zipCode;
+    /**
+     * Practitioner city.
+     *
+     * @var string
      */
-    private $notoriety_coef;
-
-    public function getId_p() {
-        return $this->id_p;
+    private $city;
+    /**
+     * Practitioner address.
+     *
+     * @var double
+     */
+    private $notorietyCoefficient;
+    /**
+     * Practitioner type.
+     *
+     * @var \GSB\Domaine\PractitionerType
+     */
+    private $type;
+    
+    public function getId() {
+        return $this->id;
     }
-
-    public function getType_id_p() {
-        return $this->type_id_p;
+    public function setId($id) {
+        $this->id = $id;
     }
-
-    public function getPrac_name() {
-        return $this->prac_name;
+    
+    public function getName() {
+        return $this->name;
     }
-
-    public function getPrac_first_name() {
-        return $this->prac_first_name;
+    public function setName($name) {
+        $this->name = $name;
     }
-
-    public function getPrac_address() {
-        return $this->prac_address;
+    
+    public function getFirstName() {
+        return $this->firstName;
     }
-
-    public function getPrac_zip() {
-        return $this->prac_zip;
+    public function setFirstName($firstName) {
+        $this->firstName = $firstName;
     }
-
-    public function getPrac_city() {
-        return $this->prac_city;
+    
+    public function getAddress() {
+        return $this->address;
     }
-
-    public function getNotoriety_coef() {
-        return $this->notoriety_coef;
+    public function setAddress($address) {
+        $this->address = $address;
     }
-
-    public function setId_p($id_p) {
-        $this->id_p = $id_p;
+    
+    public function getZipCode() {
+        return $this->zipCode;
     }
-
-    public function setType_id_p($type_id_p) {
-        $this->type_id_p = $type_id_p;
+    public function setZipCode($zipCode) {
+        $this->zipCode = $zipCode;
     }
-
-    public function setPrac_name($prac_name) {
-        $this->prac_name = $prac_name;
+    
+    public function getCity() {
+        return $this->city;
     }
-
-    public function setPrac_first_name($prac_first_name) {
-        $this->prac_first_name = $prac_first_name;
+    public function setCity($city) {
+        $this->city = $city;
     }
-
-    public function setPrac_address($prac_address) {
-        $this->prac_address = $prac_address;
+    
+    public function getNotorietyCoefficient() {
+        return $this->notorietyCoefficient;
     }
-
-    public function setPrac_zip($prac_zip) {
-        $this->prac_zip = $prac_zip;
+    public function setNotorietyCoefficient($notorietyCoefficient) {
+        $this->notorietyCoefficient = $notorietyCoefficient;
     }
-
-    public function setPrac_city($prac_city) {
-        $this->prac_city = $prac_city;
+    
+    public function getType() {
+        return $this->type;
     }
-
-    public function setNotoriety_coef($notoriety_coef) {
-        $this->notoriety_coef = $notoriety_coef;
+    public function setType($type) {
+        $this->type = $type;
     }
-
 }

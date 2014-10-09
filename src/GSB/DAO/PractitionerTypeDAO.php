@@ -4,32 +4,31 @@ namespace GSB\DAO;
 
 use GSB\Domain\PractitionerType;
 
-class PractitionerTypeDAO extends DAO
-{
+class PractitionerTypeDAO extends DAO {
     /**
-     * Returns the list of all types, sorted by name.
+     * Returns the list of all Practitioner Type, sorted by name.
      *
-     * @return array The list of all types.
+     * @return array The list of all Practitioner Type.
      */
     public function findAll() {
         $sql = "select * from practitioner_type order by practitioner_type_name";
         $result = $this->getDb()->fetchAll($sql);
         
         // Converts query result to an array of domain objects
-        $types = array();
+        $practitionerTypes = array();
         foreach ($result as $row) {
-            $typeID = $row['practitioner_type_id'];
-            $types[$typeID] = $this->buildDomainObject($row);
+            $practitionerTypeId = $row['practitioner_type_id'];
+            $practitionerTypes[$practitionerTypeId] = $this->buildDomainObject($row);
         }
-        return $types;
+        return $practitionerTypes;
     }
 
     /**
-     * Returns the type matching the given id.
+     * Returns the practitioner matching the given id.
      *
-     * @param integer $id The type id.
+     * @param integer $id The practitioner id.
      *
-     * @return \GSB\Domain\practitionertype|throws an exception if no family is found.
+     * @return \GSB\Domain\PractitionerTypet|hrows an exception if no family is found.
      */
     public function find($id) {
         $sql = "select * from practitioner_type where practitioner_type_id=?";
@@ -38,20 +37,21 @@ class PractitionerTypeDAO extends DAO
         if ($row)
             return $this->buildDomainObject($row);
         else
-            throw new \Exception("No Type found for id " . $id);
+            throw new \Exception("No practitioner type found for id " . $id);
     }
 
     /**
-     * Creates a Type instance from a DB query result row.
+     * Creates a Family instance from a DB query result row.
      *
      * @param array $row The DB query result row.
      *
-     * @return \GSB\Domain\PractitionerType
+     * @return \GSB\Domain\Family
      */
     protected function buildDomainObject($row) {
-        $type = new PractitionerType();
-        $type->setType_id_p($row['practitioner_type_id']);
-        $type->setType_name_p($row['practitioner_type_name']);
-        return $type;
+        $practitionerType = new PractitionerType();
+        $practitionerType->setId($row['practitioner_type_id']);
+        $practitionerType->setName($row['practitioner_type_name']);
+        $practitionerType->setPlace($row['practitioner_type_place']);
+        return $practitionerType;
     }
 }
