@@ -56,6 +56,20 @@ $app->post('/practitioners/results/', function(Request $request) use ($app) {
     $practitioners = $app['dao.practitioner']->findAllByType($practitionerTypeId);
     return $app['twig']->render('practitioners_results.html.twig', array('practitioners' => $practitioners));
 });
+
+
+// Details for all visit report
+$app->get('/reports/', function() use ($app) {
+    $visitReport = $app['dao.reports']->findAll();
+    return $app['twig']->render('reports.html.twig', array('reports' => $visitReport));
+});
+// add page for reports
+$app->get('/reports/add/', function() use ($app) {
+    $reports = $app['dao.reports']->findAll();
+    return $app['twig']->render('reports_add.html.twig', array('reports' => $reports));
+});
+
+
 // Login form
 $app->get('/login', function(Request $request) use ($app) {
     return $app['twig']->render('login.html.twig', array(

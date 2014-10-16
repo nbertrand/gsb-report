@@ -70,11 +70,11 @@ class PractitionerDAO extends DAO
     }
 
     /**
-     * Creates a Drug instance from a DB query result row.
+     * Creates a practitioner instance from a DB query result row.
      *
      * @param array $row The DB query result row.
      *
-     * @return \GSB\Domain\Drug
+     * @return \GSB\Domain\Practitioner
      */
     protected function buildDomainObject($row) {
         $practitionerTypeId = $row['practitioner_type_id'];

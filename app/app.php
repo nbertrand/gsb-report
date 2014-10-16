@@ -27,6 +27,16 @@ $app['dao.practitioner'] = $app->share(function ($app) {
     $practitionerDAO->setPractitionerTypeDAO($app['dao.practitionerType']);
     return $practitionerDAO;
 });
+$app['dao.visitor'] = $app->share(function ($app) {
+    return new GSB\DAO\VisitorDAO($app['db']);
+});
+
+$app['dao.reports'] = $app->share(function ($app) {
+    $visitReport = new GSB\DAO\VisitReportDAO($app['db']);
+    $visitReport->setPractitionerDAO($app['dao.practitioner']);
+    $visitReport->setVisitorDAO($app['dao.visitor']);
+    return $visitReport;
+});
 
 // Register service providers.
 $app->register(new Silex\Provider\DoctrineServiceProvider());
@@ -51,4 +61,3 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
         ),
     ),
 ));
-// Register services.
